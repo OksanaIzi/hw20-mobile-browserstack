@@ -7,10 +7,9 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 @Config.LoadPolicy(MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:config/android.properties"
+        "classpath:config/ios.properties"
 })
-public interface AndroidConfig extends Config {
-
+public interface IosConfig extends Config {
     @Key("device")
     String device();
 

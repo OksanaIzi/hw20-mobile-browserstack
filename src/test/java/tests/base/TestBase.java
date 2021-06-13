@@ -16,10 +16,9 @@ import static helpers.Attach.getSessionId;
 public class TestBase {
 
     @BeforeAll
-    public static void setup() {
+    public static void baseSetup() {
         addListener("AllureSelenide", new AllureSelenide());
 
-        Configuration.browser = BrowserstackAndroidDriver.class.getName();
         Configuration.startMaximized = false;
         Configuration.browserSize = null;
         Configuration.timeout = 10000;

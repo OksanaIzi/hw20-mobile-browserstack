@@ -58,3 +58,10 @@ task selenide_android(type: Test) {
         includeTags 'selenide_android'
     }
 }
+
+task selenide_ios(type: Test) {
+    useJUnitPlatform {
+        includeTags 'selenide_ios'
+    }
+}
+
