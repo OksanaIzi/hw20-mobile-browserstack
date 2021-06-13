@@ -10,20 +10,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static config.Project.browserStackConfig;
+import static config.Project.iosConfig;
+
 public class BrowserStackIosSampleTest {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", "oksanaizibekova_ytcmHa");
-        caps.setCapability("browserstack.key", "r1z1qmnRRxysJUSSMUxk");
+        caps.setCapability("browserstack.user", browserStackConfig.getBaseUser());
+        caps.setCapability("browserstack.key", browserStackConfig.getBasePassword());
 
         // Set URL of the application under test
-        caps.setCapability("app", "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d");
+        caps.setCapability("app", iosConfig.app());
 
         // Specify device and os_version for testing
-        caps.setCapability("device", "iPhone XS");
-        caps.setCapability("os_version", "12");
+        caps.setCapability("device", iosConfig.device());
+        caps.setCapability("os_version", iosConfig.osVersion());
 
         // Set other BrowserStack capabilities
         caps.setCapability("project", "First Java Project");

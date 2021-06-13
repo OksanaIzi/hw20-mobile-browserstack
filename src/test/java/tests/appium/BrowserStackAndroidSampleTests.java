@@ -11,21 +11,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+import static config.Project.androidConfig;
+import static config.Project.browserStackConfig;
+
 public class BrowserStackAndroidSampleTests {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", "oksanaizibekova_ytcmHa");
-        caps.setCapability("browserstack.key", "r1z1qmnRRxysJUSSMUxk");
+        caps.setCapability("browserstack.user", browserStackConfig.getBaseUser());
+        caps.setCapability("browserstack.key", browserStackConfig.getBasePassword());
 
         // Set URL of the application under test
-        caps.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
+        caps.setCapability("app", androidConfig.app());
 
         // Specify device and os_version for testing
-        caps.setCapability("device", "Google Pixel 3");
-        caps.setCapability("os_version", "9.0");
+        caps.setCapability("device", androidConfig.device());
+        caps.setCapability("os_version", androidConfig.osVersion());
 
         // Set other BrowserStack capabilities
         caps.setCapability("project", "First Java Project");
